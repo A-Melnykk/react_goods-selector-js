@@ -61,14 +61,17 @@ export const App = () => {
                         -
                       </button>
                     ) : (
-                      <button
-                        data-cy="AddButton"
-                        type="button"
-                        className="button is-small"
-                        onClick={() => setSelectedGood(good)}
-                      >
-                        +
-                      </button>
+                      /* Вимога №9: Кнопка Add з'являється ТІЛЬКИ якщо НІЧОГО не вибрано взагалі */
+                      !selectedGood && (
+                        <button
+                          data-cy="AddButton"
+                          type="button"
+                          className="button is-small"
+                          onClick={() => setSelectedGood(good)}
+                        >
+                          +
+                        </button>
+                      )
                     )}
                   </td>
                   <td data-cy="GoodTitle" style={{ verticalAlign: 'middle' }}>
